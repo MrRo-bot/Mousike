@@ -1,6 +1,6 @@
 # Mousike
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1c9a6ff9-e1be-4f0c-b974-92c0b0d5af47/deploy-status)](https://app.netlify.com/sites/mousike/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04b4db2d-928f-4734-897f-3503c7ba87ba/deploy-status)](https://app.netlify.com/sites/mousike/deploys)
 
 ![React](https://img.shields.io/badge/React-teal)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-blue)
@@ -10,13 +10,13 @@
 ![NPM](https://img.shields.io/badge/NPM-red)
 ![ESLint](https://img.shields.io/badge/ESLint-purple)
 ![Prettier](https://img.shields.io/badge/Prettier-darkpurple)
-![Spotify](https://img.shields.io/badge/ESLint-green)
+![Spotify](https://img.shields.io/badge/Spotify-green)
 
-<a href="https://youtu.be/Tn4CqGJ6USw" target="_blank"><img src="/public/mousike_desktop.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+[![Desktop view](/public/mousike_desktop.jpg)]
+(https://youtu.be/Tn4CqGJ6USw)
 
-<a href="https://youtu.be/fcD_shdCQao" target="_blank"><img src="/public/mousike_mobile.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+[![Mobile view](/public/mousike_mobile.jpg)]
+(https://youtu.be/Tn4CqGJ6USw)
 
 ## Table of contents
 
