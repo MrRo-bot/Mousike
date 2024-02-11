@@ -12,8 +12,11 @@
 ![Prettier](https://img.shields.io/badge/Prettier-darkpurple)
 ![Spotify](https://img.shields.io/badge/ESLint-green)
 
-![desktop view](https://youtu.be/Tn4CqGJ6USw)
-![mobile view](https://youtu.be/fcD_shdCQao)
+<a href="https://youtu.be/Tn4CqGJ6USw" target="_blank"><img src="/public/mousike_desktop.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+<a href="https://youtu.be/fcD_shdCQao" target="_blank"><img src="/public/mousike_mobile.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Table of contents
 
