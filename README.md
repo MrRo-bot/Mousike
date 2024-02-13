@@ -12,11 +12,11 @@
 ![Prettier](https://img.shields.io/badge/Prettier-darkpurple)
 ![Spotify](https://img.shields.io/badge/Spotify-green)
 
-[![Desktop view](/public/mousike_desktop.jpg)]
-(https://youtu.be/Tn4CqGJ6USw)
+## Youtube DEMO
 
-[![Mobile view](/public/mousike_mobile.jpg)]
-(https://youtu.be/Tn4CqGJ6USw)
+[![Desktop view](https://img.youtube.com/vi/Tn4CqGJ6USw/0.jpg)](https://www.youtube.com/watch?v=Tn4CqGJ6USw)
+
+[![Mobile view](https://img.youtube.com/vi/fcD_shdCQao/0.jpg)](https://www.youtube.com/watch?v=fcD_shdCQao)
 
 ## Table of contents
 
@@ -83,6 +83,7 @@ I created this web app to showcase designing, data fetching ability, using exist
 ### Web-technologies
 
 - React `v18.2.0`
+- tailwindcss `3.3.3`
 - ES6
 - Vite `v4.4.5`
 - Visual Studio Code
@@ -105,7 +106,7 @@ I created this web app to showcase designing, data fetching ability, using exist
 
 ## Future-plans
 
-- Fully fletched player,
+- Fully fletched player with shuffle and queue,
 - Better search and play,
 - Better routing for making whole website a collection of links to go to,
 - More unique and design ideas.
