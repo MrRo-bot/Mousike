@@ -35,15 +35,15 @@
 
 ## Overview
 
-Mousike greek for music is a Spotify UI clone with Neomorphism design.
+Mousike (Greek for music) is a Spotify UI clone with Neumorphism design.
 
 ### About
 
-I created this web app to showcase designing, data fetching ability, using existing API and working with it, handling complex animations and layouts of production level websites, and land a job as a React/Web developer. This is my third fully-fledged working web app using API with all the data required for a desiging the app with spotify account's data.
+I created this web app to showcase designing, data fetching ability, using existing API and working with it, handling complex animations and layouts of production level websites, and land a job as a React/Web developer. This is my third fully-fledged working web app using API with all the data required for a designing the app with spotify account's data.
 
 ### Features
 
-- Neomorphism minimalist design,
+- Neumorphism minimalist design,
 - Official spotify animations with personal touch using framer-motion,
 - Using official spotify API for site's data,
 - spotify-web-api-js NPM package for fetching and managing spotify data easily,
