@@ -15,7 +15,10 @@ export default function Callback() {
       const returnedState = params.get("state");
       const storedState = localStorage.getItem("spotify_state");
 
-      console.info(params, code, returnedState, storedState);
+      console.error("params", params);
+      console.error("code", code);
+      console.error("returnedState", returnedState);
+      console.error("storedState", storedState);
 
       if (!code || returnedState !== storedState) {
         console.error("State mismatch or no code");
@@ -25,7 +28,7 @@ export default function Callback() {
 
       const verifier = localStorage.getItem("spotify_verifier");
 
-      console.info(verifier);
+      console.error("verifier", verifier);
 
       if (!verifier) {
         console.error("No verifier");
@@ -44,7 +47,9 @@ export default function Callback() {
         code_verifier: verifier,
       });
 
-      console.info(REDIRECT_URI, CLIENT_ID, verifier);
+      console.error("REDIRECT_URI", REDIRECT_URI);
+      console.error("CLIENT_ID", CLIENT_ID);
+      console.error("verifier", verifier);
 
       try {
         const res = await fetch(TOKEN_URL, {
@@ -53,7 +58,7 @@ export default function Callback() {
           body: body,
         });
 
-        console.info(JSON.stringify(res));
+        console.error("res", JSON.stringify(res));
 
         if (!res.ok) throw new Error("Token exchange failed");
 
@@ -68,7 +73,7 @@ export default function Callback() {
 
         window.history.replaceState({}, "", "/");
       } catch (err) {
-        console.error(err);
+        console.error("error", err);
       }
 
       navigate("/");
