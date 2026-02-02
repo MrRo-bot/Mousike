@@ -10,8 +10,6 @@ import Loader from "./components/Loader";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
 
-import { getTokenFromUrl } from "./utils/spotifyConstants";
-
 import { useDataContextValue } from "./Context/ProfileContext";
 
 const Layout = ({ spotify }) => {
@@ -28,93 +26,93 @@ const Layout = ({ spotify }) => {
   });
 
   useEffect(() => {
-    const hash = getTokenFromUrl();
-    window.location.hash = "";
-    let _token = hash.access_token;
+    let token = localStorage.getItem("spotify_access_token");
     try {
-      if (_token) {
+      if (token) {
         dispatch({
           type: "SET_TOKEN",
-          token: _token,
+          token,
         });
-        spotify.setAccessToken(_token);
+        spotify.setAccessToken(token);
         spotify.getMe().then((user) =>
           dispatch({
             type: "SET_USER",
-            user: user,
-          })
+            user,
+          }),
         );
-        spotify.getMySavedAlbums().then((savedAlbum) => {
+        spotify.getMySavedAlbums().then((savedAlbums) => {
           dispatch({
             type: "SET_SAVED_ALBUMS",
-            savedAlbums: savedAlbum,
+            savedAlbums,
           });
         });
-        spotify.getNewReleases().then((newRelease) => {
+        spotify.getNewReleases().then((newReleases) => {
           dispatch({
             type: "SET_NEW_RELEASES",
-            newReleases: newRelease,
+            newReleases,
           });
         });
-        spotify.getMyRecentlyPlayedTracks({ limit: 50 }).then((recentPlays) => {
-          dispatch({
-            type: "SET_RECENTLY_PLAYED",
-            recentlyPlayed: recentPlays,
+        spotify
+          .getMyRecentlyPlayedTracks({ limit: 50 })
+          .then((recentlyPlayed) => {
+            dispatch({
+              type: "SET_RECENTLY_PLAYED",
+              recentlyPlayed,
+            });
           });
-        });
-        spotify.getAvailableGenreSeeds().then((genreSeed) => {
+        spotify.getAvailableGenreSeeds().then((genreSeeds) => {
           dispatch({
             type: "SET_GENRE_SEEDS",
-            genreSeeds: genreSeed,
+            genreSeeds,
           });
         });
-        spotify.getUserPlaylists().then((userPlaylist) => {
+        spotify.getUserPlaylists().then((userPlaylists) => {
           dispatch({
             type: "SET_USER_PLAYLISTS",
-            userPlaylists: userPlaylist,
+            userPlaylists,
           });
         });
-        spotify.getFeaturedPlaylists().then((featuredPlaylist) => {
+        spotify.getFeaturedPlaylists().then((featuredPlaylists) => {
           dispatch({
             type: "SET_FEATURED_PLAYLISTS",
-            featuredPlaylists: featuredPlaylist,
+            featuredPlaylists,
           });
         });
-        spotify.getCategories({ limit: 50 }).then((category) => {
+        spotify.getCategories({ limit: 50 }).then((categories) => {
           dispatch({
             type: "SET_CATEGORIES",
-            categories: category,
+            categories,
           });
         });
-        spotify.getFollowedArtists({ type: "artist" }).then((savedArtist) => {
+        spotify.getFollowedArtists({ type: "artist" }).then((savedArtists) => {
           dispatch({
             type: "SET_SAVED_ARTISTS",
-            savedArtists: savedArtist,
+            savedArtists,
           });
         });
-        spotify.getMyTopTracks().then((topTrack) => {
+        spotify.getMyTopTracks().then((myTopTracks) => {
           dispatch({
             type: "SET_TOP_TRACKS",
-            myTopTracks: topTrack,
+            myTopTracks,
           });
         });
-        spotify.getMyTopArtists().then((topArtist) => {
+        spotify.getMyTopArtists().then((myTopArtists) => {
           dispatch({
             type: "SET_TOP_ARTISTS",
-            myTopArtists: topArtist,
+            myTopArtists,
           });
         });
-        spotify.getMySavedTracks().then((savedTrack) => {
+        spotify.getMySavedTracks().then((savedTracks) => {
           dispatch({
             type: "SET_SAVED_TRACKS",
-            savedTracks: savedTrack,
+            savedTracks,
           });
         });
       }
     } catch (error) {
       alert(error);
     }
-  }, [state, dispatch, spotify]);
+  }, [dispatch, spotify]);
 
   return state?.token ? (
     <>

@@ -24,10 +24,12 @@ import LikedSongs from "./pages/LikedSongs.jsx";
 import AlbumInfo from "./pages/AlbumInfo.jsx";
 import ArtistInfo from "./pages/ArtistInfo.jsx";
 import PlaylistInfo from "./pages/PlaylistInfo.jsx";
+import Callback from "./pages/Callback.jsx";
 
 const reactRoutes = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout spotify={spotify} />}>
+      <Route path="callback" element={<Callback />} />
       <Route path="/" element={<Discover spotify={spotify} />} />
       <Route path="search" element={<Search spotify={spotify} />} />
       <Route path="library" element={<Library spotify={spotify} />} />
@@ -48,8 +50,8 @@ const reactRoutes = createBrowserRouter(
         path="library/likedSongs"
         element={<LikedSongs spotify={spotify} />}
       />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -59,5 +61,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </RouterProvider>
     </ProfileContext>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
