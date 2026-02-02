@@ -28,29 +28,32 @@ import Callback from "./pages/Callback.jsx";
 
 const reactRoutes = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Layout spotify={spotify} />}>
+    <>
       <Route path="callback" element={<Callback />} />
-      <Route path="/" element={<Discover spotify={spotify} />} />
-      <Route path="search" element={<Search spotify={spotify} />} />
-      <Route path="library" element={<Library spotify={spotify} />} />
-      <Route path="player" element={<Player spotify={spotify} />} />
-      <Route
-        path="albumInfo/:albumId"
-        element={<AlbumInfo spotify={spotify} />}
-      />
-      <Route
-        path="artistInfo/:artistId"
-        element={<ArtistInfo spotify={spotify} />}
-      />
-      <Route
-        path="playlistInfo/:playlistId"
-        element={<PlaylistInfo spotify={spotify} />}
-      />
-      <Route
-        path="library/likedSongs"
-        element={<LikedSongs spotify={spotify} />}
-      />
-    </Route>,
+
+      <Route element={<Layout spotify={spotify} />}>
+        <Route path="/" element={<Discover spotify={spotify} />} />
+        <Route path="search" element={<Search spotify={spotify} />} />
+        <Route path="library" element={<Library spotify={spotify} />} />
+        <Route path="player" element={<Player spotify={spotify} />} />
+        <Route
+          path="albumInfo/:albumId"
+          element={<AlbumInfo spotify={spotify} />}
+        />
+        <Route
+          path="artistInfo/:artistId"
+          element={<ArtistInfo spotify={spotify} />}
+        />
+        <Route
+          path="playlistInfo/:playlistId"
+          element={<PlaylistInfo spotify={spotify} />}
+        />
+        <Route
+          path="library/likedSongs"
+          element={<LikedSongs spotify={spotify} />}
+        />
+      </Route>
+    </>,
   ),
 );
 

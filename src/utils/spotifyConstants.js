@@ -1,7 +1,5 @@
 export const CLIENT_ID = "1e09d4a478034001a97bc3b7333398e2";
-export const REDIRECT_URI = import.meta.env.DEV
-  ? "http://127.0.0.1:5173/callback"
-  : "https://mousike.netlify.app/callback";
+export const REDIRECT_URI = "https://mousike.netlify.app/callback";
 
 export const AUTH_URL = "https://accounts.spotify.com/authorize";
 export const TOKEN_URL = "https://accounts.spotify.com/api/token";

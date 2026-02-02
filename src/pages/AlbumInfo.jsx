@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 
+import logo from "../assets/logo.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -40,7 +42,7 @@ const AlbumInfo = ({ spotify }) => {
   const opacityProgress = useTransform(
     scrollYProgress,
     [1, 0.2, 0],
-    [0, 0.05, 1]
+    [0, 0.05, 1],
   );
 
   const colorProgress = useTransform(
@@ -51,7 +53,7 @@ const AlbumInfo = ({ spotify }) => {
       "hsla(206, 19%, 93%, 0)",
       "hsla(206, 19%, 93%, 1)",
       // "hsla(0, 0%, 90%, 1)",
-    ]
+    ],
   );
 
   useEffect(() => {
@@ -169,7 +171,7 @@ const AlbumInfo = ({ spotify }) => {
             className="p-3 mx-auto origin-top aspect-square max-h-80 max-w-80 shadow-neoRaised lg:max-h-[52vh]"
           >
             {load ? (
-              <img src="../src/assets/logo.png" alt="logo" />
+              <img src={logo} alt="logo" />
             ) : (
               <img
                 loading="lazy"
@@ -295,7 +297,7 @@ const AlbumInfo = ({ spotify }) => {
             ) : (
               album &&
               playbackTime(
-                album?.tracks?.items?.map((track) => track.duration_ms)
+                album?.tracks?.items?.map((track) => track.duration_ms),
               )
             )}
           </h2>

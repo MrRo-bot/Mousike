@@ -7,6 +7,8 @@ import {
   SCOPES,
 } from "../utils/spotifyConstants";
 
+import logo from "../assets/logo.png";
+
 const Login = () => {
   const handleLogin = async () => {
     const verifier = generateCodeVerifier();
@@ -35,12 +37,7 @@ const Login = () => {
     <div className="grid w-screen h-screen place-items-center">
       <div className="grid place-items-center rounded-3xl shadow-neo w-80 h-80 lg:w-96 lg:h-96">
         <div className="flex gap-2">
-          <img
-            loading="lazy"
-            className="h-10 lg:h-14"
-            src="../src/assets/logo.png"
-            alt="logo"
-          />
+          <img loading="lazy" className="h-10 lg:h-14" src={logo} alt="logo" />
           <h1 className="text-4xl lg:text-5xl headingGradient">Mousike</h1>
         </div>
         <button

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import logo from "../assets/logo.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -95,7 +96,7 @@ const Player = () => {
               />
             ) : (
               <div className="rounded-full">
-                <img src="/src/assets/logo.png" alt="logo" />
+                <img src={logo} alt="logo" />
               </div>
             )}
           </div>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ID, REDIRECT_URI, TOKEN_URL } from "../utils/spotifyConstants";
 import { useDataContextValue } from "../Context/ProfileContext";
+import Loading from "../components/Loading";
 
 export default function Callback() {
   const navigate = useNavigate();
@@ -67,5 +68,5 @@ export default function Callback() {
     handleCallback();
   }, [dispatch, navigate]);
 
-  return <div>Logging you in...</div>;
+  return <Loading />;
 }

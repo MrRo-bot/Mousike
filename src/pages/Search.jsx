@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
+import logo from "../assets/logo.png";
+
 import { nanoid } from "nanoid";
 
 import { useDataContextValue } from "../Context/ProfileContext";
@@ -38,7 +40,7 @@ const Search = ({ spotify }) => {
               ...searchItems.artists.items,
               ...searchItems.tracks.items,
               ...searchItems.playlists.items,
-            ])
+            ]),
           );
         });
     })();
@@ -88,7 +90,7 @@ const Search = ({ spotify }) => {
               <>
                 <img
                   className="max-w-[15rem] lg:max-w-[20rem] aspect-square"
-                  src="../src/assets/logo.png"
+                  src={logo}
                   alt="logo"
                 />
                 <p className=" text-text lg:text-lg lg:font-bold">
@@ -105,7 +107,7 @@ const Search = ({ spotify }) => {
                   <SearchArtistItems key={nanoid()} items={item} />
                 ) : (
                   <SearchPlaylistItems key={nanoid()} items={item} />
-                )
+                ),
               )
             )}
           </div>

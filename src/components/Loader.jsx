@@ -1,10 +1,12 @@
+import logo from "../assets/logo.png";
+
 const Loader = () => {
   return (
     <div className="relative z-50 w-full h-screen overflow-hidden bg-background">
       <img
         loading="lazy"
         className="absolute w-48 h-48 -translate-x-1/2 -translate-y-1/2 rounded-full lg:w-60 lg:h-60 left-1/2 top-1/2 shadow-neo"
-        src="./src/assets/logo.png"
+        src={logo}
         alt="logo"
       />
       <div className="absolute flex text-6xl justify-center gap-1 -translate-x-1/2 w-[80%] left-1/2 -translate-y-1/2 top-3/4 ">

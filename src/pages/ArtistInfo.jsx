@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
 
+import logo from "../assets/logo.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -42,7 +44,7 @@ const ArtistInfo = ({ spotify }) => {
   const colorProgress = useTransform(
     scrollYProgress,
     [0.9, 1],
-    ["hsla(206, 19%, 93%, 0)", "hsla(206, 19%, 93%, 1)"]
+    ["hsla(206, 19%, 93%, 0)", "hsla(206, 19%, 93%, 1)"],
   );
 
   useEffect(() => {
@@ -55,7 +57,7 @@ const ArtistInfo = ({ spotify }) => {
     spotify
       .getArtist(artistData.artistId)
       .then((artist) =>
-        setArtist((prev) => ({ ...prev, artistDetail: artist }))
+        setArtist((prev) => ({ ...prev, artistDetail: artist })),
       );
 
     spotify
@@ -128,7 +130,7 @@ const ArtistInfo = ({ spotify }) => {
             {load ? (
               <img
                 className="absolute object-cover w-full h-full aspect-square"
-                src="../src/assets/logo.png"
+                src={logo}
                 alt="logo"
               />
             ) : (
@@ -147,7 +149,7 @@ const ArtistInfo = ({ spotify }) => {
                 {load ? (
                   <img
                     className="w-full h-full aspect-square"
-                    src="../src/assets/logo.png"
+                    src={logo}
                     alt="logo"
                   />
                 ) : (

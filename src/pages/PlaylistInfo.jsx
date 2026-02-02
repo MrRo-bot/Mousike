@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
 
+import logo from "../assets/logo.png";
+import spotifyGreen from "../assets/spotify_green.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -41,7 +44,7 @@ const PlaylistInfo = ({ spotify }) => {
   const colorProgress = useTransform(
     scrollYProgress,
     [0.9, 1],
-    ["hsla(206, 19%, 93%, 0)", "hsla(206, 19%, 93%, 1)"]
+    ["hsla(206, 19%, 93%, 0)", "hsla(206, 19%, 93%, 1)"],
   );
 
   useEffect(() => {
@@ -154,7 +157,7 @@ const PlaylistInfo = ({ spotify }) => {
             className="p-3 mx-auto mb-4 origin-bottom max-w-80 max-h-80 lg:max-h-[52vh] aspect-square shadow-neoRaised"
           >
             {load ? (
-              <img src="../src/assets/logo.png" alt="logo" />
+              <img src={logo} alt="logo" />
             ) : (
               <img
                 loading="lazy"
@@ -177,7 +180,7 @@ const PlaylistInfo = ({ spotify }) => {
                 <img
                   loading="lazy"
                   className="w-6 h-6 rounded-full lg:w-10 lg:h-10"
-                  src="../src/assets/spotify_green.png"
+                  src={spotifyGreen}
                   alt="spotify - artist art"
                 />
                 <h2 className="text-sm font-extrabold lg:text-xl text-text">
@@ -207,8 +210,8 @@ const PlaylistInfo = ({ spotify }) => {
                   {playlist &&
                     playbackTime(
                       playlist?.tracks?.items?.map(
-                        (track) => track?.track?.duration_ms
-                      )
+                        (track) => track?.track?.duration_ms,
+                      ),
                     ).slice(11)}
                 </h3>
               </>
