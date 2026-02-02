@@ -15,6 +15,8 @@ export default function Callback() {
       const returnedState = params.get("state");
       const storedState = localStorage.getItem("spotify_state");
 
+      console.table(params, code, returnedState, storedState);
+
       if (!code || returnedState !== storedState) {
         console.error("State mismatch or no code");
         navigate("/");
@@ -22,6 +24,9 @@ export default function Callback() {
       }
 
       const verifier = localStorage.getItem("spotify_verifier");
+
+      console.table(verifier);
+
       if (!verifier) {
         console.error("No verifier");
         navigate("/");
@@ -39,12 +44,16 @@ export default function Callback() {
         code_verifier: verifier,
       });
 
+      console.table(REDIRECT_URI, CLIENT_ID, verifier);
+
       try {
         const res = await fetch(TOKEN_URL, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: body,
         });
+
+        console.log(JSON.stringify(res));
 
         if (!res.ok) throw new Error("Token exchange failed");
 
