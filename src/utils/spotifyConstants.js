@@ -18,7 +18,7 @@ export const SCOPES = [
   "user-modify-playback-state",
 ].join(" ");
 
-export const generateCodeVerifier = (length = 96) => {
+export const generateCodeVerifier = (length = 128) => {
   const array = new Uint8Array(length);
   crypto.getRandomValues(array);
   return Array.from(array, (dec) =>

@@ -15,11 +15,6 @@ export default function Callback() {
       const returnedState = params.get("state");
       const storedState = localStorage.getItem("spotify_state");
 
-      console.error("params", params);
-      console.error("code", code);
-      console.error("returnedState", returnedState);
-      console.error("storedState", storedState);
-
       if (!code || returnedState !== storedState) {
         console.error("State mismatch or no code");
         navigate("/");
@@ -27,8 +22,6 @@ export default function Callback() {
       }
 
       const verifier = localStorage.getItem("spotify_verifier");
-
-      console.error("verifier", verifier);
 
       if (!verifier) {
         console.error("No verifier");
@@ -47,10 +40,6 @@ export default function Callback() {
         code_verifier: verifier,
       });
 
-      console.error("REDIRECT_URI", REDIRECT_URI);
-      console.error("CLIENT_ID", CLIENT_ID);
-      console.error("verifier", verifier);
-
       try {
         const res = await fetch(TOKEN_URL, {
           method: "POST",
@@ -58,9 +47,17 @@ export default function Callback() {
           body: body,
         });
 
-        console.error("res", JSON.stringify(res));
-
-        if (!res.ok) throw new Error("Token exchange failed");
+        if (!res.ok) {
+          const errorText = await res.text();
+          console.error("TOKEN RESPONSE STATUS:", res.status);
+          console.error("TOKEN RESPONSE BODY:", errorText);
+          try {
+            const json = JSON.parse(errorText);
+            console.error("Parsed error:", json.error, json.error_description);
+          } catch {
+            throw new Error("Token exchange failed");
+          }
+        }
 
         const data = await res.json();
 
