@@ -14,9 +14,6 @@ const Login = () => {
     const verifier = generateCodeVerifier();
     const challenge = await generateCodeChallenge(verifier);
 
-    console.info("Verifier:", verifier, "Length:", verifier.length);
-    console.info("Challenge:", challenge);
-
     localStorage.setItem("spotify_verifier", verifier);
 
     const state = generateCodeVerifier(16);

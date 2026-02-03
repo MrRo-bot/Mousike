@@ -44,7 +44,7 @@ const Search = ({ spotify }) => {
           );
         });
     })();
-  }, [searchString, spotify]);
+  }, [searchString]);
 
   return (
     <div className="bg-background lg:px-6">

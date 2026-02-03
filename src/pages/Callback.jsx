@@ -23,8 +23,6 @@ export default function Callback() {
 
       const verifier = localStorage.getItem("spotify_verifier");
 
-      console.info("Used Verifier:", verifier, "Length:", verifier.length);
-
       if (!verifier) {
         console.error("No verifier");
         navigate("/");
@@ -51,8 +49,6 @@ export default function Callback() {
 
         if (!res.ok) {
           const errorText = await res.text();
-          console.error("TOKEN RESPONSE STATUS:", res.status);
-          console.error("TOKEN RESPONSE BODY:", errorText);
           try {
             const json = JSON.parse(errorText);
             console.error(
