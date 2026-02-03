@@ -16,6 +16,7 @@ export default function Callback() {
       const storedState = localStorage.getItem("spotify_state");
 
       if (!code || returnedState !== storedState) {
+        console.info(returnedState, storedState, code, params);
         console.error("State mismatch or no code");
         navigate("/");
         return;
