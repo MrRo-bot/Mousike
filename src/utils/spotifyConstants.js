@@ -18,21 +18,20 @@ export const SCOPES = [
   "user-modify-playback-state",
 ].join(" ");
 
-export const generateCodeVerifier = (length = 128) => {
+export const generateCodeVerifier = (length = 64) => {
   const array = new Uint8Array(length);
   crypto.getRandomValues(array);
-  return Array.from(array, (dec) =>
-    ("0" + dec.toString(16)).substring(-2),
-  ).join("");
+  return Array.from(array, (dec) => ("0" + dec.toString(16)).slice(-2)).join(
+    "",
+  );
 };
 
 export const generateCodeChallenge = async (verifier) => {
   const encoder = new TextEncoder();
   const data = encoder.encode(verifier);
   const digest = await crypto.subtle.digest("SHA-256", data);
-  const base64 = btoa(String.fromCharCode(...new Uint8Array(digest)))
+  return btoa(String.fromCharCode(...new Uint8Array(digest)))
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
     .replace(/=+$/, "");
-  return base64;
 };

@@ -16,13 +16,14 @@ export default function Callback() {
       const storedState = localStorage.getItem("spotify_state");
 
       if (!code || returnedState !== storedState) {
-        console.info(returnedState, storedState, code, params);
         console.error("State mismatch or no code");
         navigate("/");
         return;
       }
 
       const verifier = localStorage.getItem("spotify_verifier");
+
+      console.info("Used Verifier:", verifier, "Length:", verifier.length);
 
       if (!verifier) {
         console.error("No verifier");
@@ -54,10 +55,15 @@ export default function Callback() {
           console.error("TOKEN RESPONSE BODY:", errorText);
           try {
             const json = JSON.parse(errorText);
-            console.error("Parsed error:", json.error, json.error_description);
-          } catch {
-            throw new Error("Token exchange failed");
+            console.error(
+              "Parsed error:",
+              json.error,
+              json.error_description || "<empty>",
+            );
+          } catch (e) {
+            console.error("Parse failed:", e);
           }
+          throw new Error("Token exchange failed");
         }
 
         const data = await res.json();
